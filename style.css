@@ -1,0 +1,42 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2e2929;
+  font-size: 100px;
+}
+
+main {
+  height: 400px;
+  width: 730px;
+  background: #71c6ea;
+  border-bottom: solid 110px #4ba04b;
+  box-sizing: border-box;
+  margin-top: -60px;
+  box-shadow: 0 0 30px #80d1f9;
+  position: relative;
+  overflow: hidden;
+}
+
+#belcha {
+  width: 120px;
+  transform: scaleX(-1);
+  position: absolute;
+  left: 40px;
+  bottom: 0;
+}
+
+#snail {
+  width: 60px;
+  position: absolute;
+  left: 100%;
+  bottom: -5px;
+}
