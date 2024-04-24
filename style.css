@@ -41,6 +41,8 @@ main {
   position: absolute;
   left: 100%;
   bottom: -5px;
+  animation: crawl 3s infinite;
+  transform-origin: center bottom;
 }
 
 #chestnut {
@@ -48,16 +50,38 @@ main {
   position: absolute;
   left: 100%;
   top: 85px;
+  animation: rotate 50s infinite;
 }
 
 @keyframes run {
   0% {
     transform: translateY(0) scaleX(-1);
   } 
-  50% {
+  80% {
     transform: translateY(-5px) scaleX(-1);
   }
   100% {
     transform: translateY(0) scaleX(-1);
+  }
+}
+
+@keyframes crawl {
+  0% {
+    transform: scaleY(0.8);
+  } 
+  50% {
+    transform: scaleY(1.2);
+  }
+  100% {
+    transform: scaleY(0.8);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  } 
+  100% {
+    transform: rotate(360deg);
   }
 }
