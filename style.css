@@ -41,3 +41,10 @@ main {
   left: 100%;
   bottom: -5px;
 }
+
+#chestnut {
+  width: 40px;
+  position: absolute;
+  left: 100%;
+  top: 85px;
+}
