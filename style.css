@@ -30,8 +30,9 @@ main {
   width: 120px;
   transform: scaleX(-1);
   position: absolute;
-  left: 40px;
+  left: 130px;
   bottom: 0;
+  transition: bottom 100ms linear;
 }
 
 #snail {
