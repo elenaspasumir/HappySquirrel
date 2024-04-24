@@ -33,6 +33,7 @@ main {
   left: 130px;
   bottom: 0;
   transition: bottom 100ms linear;
+  animation: run 1s infinite;
 }
 
 #snail {
@@ -47,4 +48,16 @@ main {
   position: absolute;
   left: 100%;
   top: 85px;
+}
+
+@keyframes run {
+  0% {
+    transform: translateY(0) scaleX(-1);
+  } 
+  50% {
+    transform: translateY(-5px) scaleX(-1);
+  }
+  100% {
+    transform: translateY(0) scaleX(-1);
+  }
 }
