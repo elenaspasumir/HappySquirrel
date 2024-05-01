@@ -6,6 +6,8 @@ let chestnutCoordinate = 800;
 
 let isBelchaUp = false;
 
+let intervalID = null;
+
 let renderFrame = function() {
   snail.style.left = snailCoordinate + "px";
   snailCoordinate -= 2;
@@ -20,12 +22,18 @@ let renderFrame = function() {
     chestnut.style.visibility = "visible";
   } 
 
-  if(isBelchaUp && chestnutCoordinate < 290 && chestnutCoordinate > 90) {
+  if(isBelchaUp == true && chestnutCoordinate < 250 && chestnutCoordinate > 90) {
     chestnut.style.visibility = "hidden";
-    
+  }
+
+  if(isBelchaUp == false && snailCoordinate < 231 && snailCoordinate > 70) {
+    clearInterval(intervalID);
+    belcha.style.animation = "none";
+    snail.style.animation = "none";
+    chestnut.style.animation = "none";
   }
 }
-setInterval(renderFrame, 1000/60);
+intervalID = setInterval(renderFrame, 1000/60);
 
 let belcha = document.querySelector("#belcha");
 let landBelcha = function() {
@@ -36,6 +44,6 @@ window.onkeydown = function (evt) {
   if (evt.code == "Space") {
     belcha.style.bottom = "90px";
     isBelchaUp = true;
-    setTimeout(landBelcha, 1500); 
+    setTimeout(landBelcha, 1900); 
   }
 };
