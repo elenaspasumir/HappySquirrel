@@ -1,12 +1,35 @@
 let snail = document.querySelector("#snail");
 let chestnut = document.querySelector("#chestnut");
+let belcha = document.querySelector("#belcha");
 
-let snailCoordinate = 730;
-let chestnutCoordinate = 800;
+let snailCoordinate = null;
+let chestnutCoordinate = null;
 
 let isBelchaUp = false;
 
 let intervalID = null;
+
+let startGame = function() {
+  snailCoordinate = 730;
+  chestnutCoordinate = 800;
+  
+  window.onkeydown = function (evt) {
+    if (evt.code == "Space") {
+      belcha.style.bottom = "90px";
+      isBelchaUp = true;
+      setTimeout(landBelcha, 1900); 
+    }
+  };
+  
+  intervalID = setInterval(renderFrame, 1000/60);
+}
+
+let confirmReset = function() {
+  let userResponse = confirm("Вы врезались в улитку. Игра окончена. Попробовать еще?");
+  if(userResponse == true) {
+    startGame();
+  }
+};
 
 let renderFrame = function() {
   snail.style.left = snailCoordinate + "px";
@@ -31,19 +54,14 @@ let renderFrame = function() {
     belcha.style.animation = "none";
     snail.style.animation = "none";
     chestnut.style.animation = "none";
+    confirmReset();
   }
 }
-intervalID = setInterval(renderFrame, 1000/60);
 
-let belcha = document.querySelector("#belcha");
 let landBelcha = function() {
   belcha.style.bottom = "0px";
   isBelchaUp = false;
 }
-window.onkeydown = function (evt) {
-  if (evt.code == "Space") {
-    belcha.style.bottom = "90px";
-    isBelchaUp = true;
-    setTimeout(landBelcha, 1900); 
-  }
-};
+
+startGame();
+
