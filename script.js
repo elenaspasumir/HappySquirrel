@@ -10,6 +10,7 @@ let isBelchaUp = false;
 let intervalID = null;
 
 let startGame = function() {
+  belcha.className = "runningBelcha";
   snailCoordinate = 730;
   chestnutCoordinate = 800;
   
@@ -24,10 +25,16 @@ let startGame = function() {
   intervalID = setInterval(renderFrame, 1000/60);
 }
 
+let endGame = function() {
+  belcha.className = "happyBelcha";
+}
+
 let confirmReset = function() {
   let userResponse = confirm("Вы врезались в улитку. Игра окончена. Попробовать еще?");
   if(userResponse == true) {
     startGame();
+  } else {
+    endGame();
   }
 };
 
@@ -51,7 +58,7 @@ let renderFrame = function() {
 
   if(isBelchaUp == false && snailCoordinate < 231 && snailCoordinate > 70) {
     clearInterval(intervalID);
-    belcha.style.animation = "none";
+    belcha.className = "";
     snail.style.animation = "none";
     chestnut.style.animation = "none";
     confirmReset();

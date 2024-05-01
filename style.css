@@ -33,7 +33,6 @@ main {
   left: 130px;
   bottom: 0;
   transition: bottom 100ms linear;
-  animation: run 1s infinite;
 }
 
 #snail {
@@ -83,5 +82,28 @@ main {
   } 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.runningBelcha {
+  animation: run 1s infinite;
+}
+
+.happyBelcha {
+  /*animation: rock 3s infinite;*/
+}
+
+@keyframes rock {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
