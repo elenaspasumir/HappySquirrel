@@ -1,6 +1,7 @@
 let snail = document.querySelector("#snail");
 let chestnut = document.querySelector("#chestnut");
 let belcha = document.querySelector("#belcha");
+let forest = document.querySelector(".forest");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -11,6 +12,7 @@ let intervalID = null;
 
 let startGame = function() {
   belcha.className = "runningBelcha";
+  forest.className = "movingForest forest";
   snailCoordinate = 730;
   chestnutCoordinate = 800;
   
@@ -59,6 +61,7 @@ let renderFrame = function() {
   if(isBelchaUp == false && snailCoordinate < 231 && snailCoordinate > 70) {
     clearInterval(intervalID);
     belcha.className = "";
+    forest.className = "forest";
     snail.style.animation = "none";
     chestnut.style.animation = "none";
     confirmReset();
