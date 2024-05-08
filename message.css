@@ -1,0 +1,33 @@
+.message {
+  position:absolute;
+  width: 300px;
+  /* border: dotted 5px black; */
+  font-size: 20px;
+  background: pink;
+  padding: 20px;
+  text-align: center;
+  font-family: "Comic Sans MS";
+  margin-top: -160px;
+  box-shadow: 0 0 10px #4e637e;
+  /*box-shadow: 20px 20px 0 rgba(0, 90, 90, 0.7);*/
+  border-radius: 10px;
+  display: none;
+}
+
+.messageText {
+  margin: 0;
+}
+
+.messageButtons {
+  margin: 15px 0 0 0;
+}
+
+.messageButtonYes, .messageButtonNo {
+  font-size: 30px;
+  padding: 0 0.5em;
+  width: 4em;
+  font-family: "Comic Sans MS";
+}
+
+.messageButtonYes {
+}
