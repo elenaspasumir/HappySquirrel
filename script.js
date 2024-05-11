@@ -2,6 +2,9 @@ let snail = document.querySelector("#snail");
 let chestnut = document.querySelector("#chestnut");
 let belcha = document.querySelector("#belcha");
 let forest = document.querySelector(".forest");
+let message = document.querySelector(".message");
+let messageButtonYes = document.querySelector(".messageButtonYes");
+let messageButtonNo = document.querySelector(".messageButtonNo");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -32,12 +35,18 @@ let endGame = function() {
 }
 
 let confirmReset = function() {
-  let userResponse = confirm("Вы врезались в улитку. Игра окончена. Попробовать еще?");
-  if(userResponse == true) {
+  message.style.display = "block";
+  messageButtonYes.focus();
+  
+  messageButtonYes.onclick = function () {
+    message.style.display = "none";
     startGame();
-  } else {
-    endGame();
   }
+  
+  messageButtonNo.onclick = function () {
+    message.style.display = "none";
+    endGame();
+  };
 };
 
 let renderFrame = function() {

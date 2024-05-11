@@ -8,8 +8,7 @@
   text-align: center;
   font-family: "Comic Sans MS";
   margin-top: -160px;
-  box-shadow: 0 0 10px #4e637e;
-  /*box-shadow: 20px 20px 0 rgba(0, 90, 90, 0.7);*/
+  box-shadow: 10px 10px 0 rgb(107 77 64);
   border-radius: 10px;
   display: none;
 }
