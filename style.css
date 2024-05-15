@@ -17,13 +17,18 @@ body {
 main {
   height: 400px;
   width: 730px;
-  background: #71c6ea;
-  border-bottom: solid 110px #4ba04b;
-  box-sizing: border-box;
   margin-top: -60px;
   box-shadow: 0 0 30px #80d1f9;
   position: relative;
+}
+
+.game {
+  height: 100%;
+  background: #71c6ea;
+  border-bottom: solid 110px #4ba04b;
+  box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
 
 #belcha {
@@ -127,4 +132,18 @@ main {
   100% {
     background-position-x: -1000px;
   }
+}
+
+.stats {
+  position:absolute;
+  font-size: 20px;
+  background: pink;
+  padding: 20px;
+  text-align: center;
+  font-family: "Comic Sans MS";
+  margin-top: -160px;
+  box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
+  border-radius: 30px;
+  bottom: 20px;
+  right: 20px;
 }

@@ -5,11 +5,14 @@ let forest = document.querySelector(".forest");
 let message = document.querySelector(".message");
 let messageButtonYes = document.querySelector(".messageButtonYes");
 let messageButtonNo = document.querySelector(".messageButtonNo");
+let statsCounter = document.querySelector(".statsCounter");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
 
 let isBelchaUp = false;
+
+let nutsAmount = null;
 
 let intervalID = null;
 
@@ -18,6 +21,8 @@ let startGame = function() {
   forest.className = "movingForest forest";
   snailCoordinate = 730;
   chestnutCoordinate = 800;
+  nutsAmount = 0;
+  statsCounter.textContent = nutsAmount;
   
   window.onkeydown = function (evt) {
     if (evt.code == "Space") {
@@ -60,11 +65,12 @@ let renderFrame = function() {
   chestnutCoordinate -= 1;
   if(chestnutCoordinate <= -40) {
     chestnutCoordinate = 800;
-    chestnut.style.visibility = "visible";
   } 
 
   if(isBelchaUp == true && chestnutCoordinate < 250 && chestnutCoordinate > 90) {
-    chestnut.style.visibility = "hidden";
+    chestnutCoordinate = 800;
+    nutsAmount += 1;
+    statsCounter.textContent = nutsAmount;
   }
 
   if(isBelchaUp == false && snailCoordinate < 231 && snailCoordinate > 70) {
