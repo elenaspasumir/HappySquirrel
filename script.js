@@ -18,6 +18,8 @@ let intervalID = null;
 
 let startGame = function() {
   belcha.className = "runningBelcha";
+  snail.style.animation = null;
+  chestnut.style.animation = null;
   forest.className = "movingForest forest";
   snailCoordinate = 730;
   chestnutCoordinate = 800;
