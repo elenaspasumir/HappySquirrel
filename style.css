@@ -138,12 +138,24 @@ main {
   position:absolute;
   font-size: 20px;
   background: pink;
-  padding: 20px;
+  padding: 10px 20px;
   text-align: center;
   font-family: "Comic Sans MS";
   margin-top: -160px;
   box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
-  border-radius: 30px;
+  border-radius: 20px;
   bottom: 20px;
   right: 20px;
+}
+
+.statsCounter::after {
+  height: 1em;
+  width: 1em;
+  content: "";
+  display: inline-block;
+  background-image: url("chestnut_1f330.png");
+  background-size: 100% 100%;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  margin-top: -4px;
 }
