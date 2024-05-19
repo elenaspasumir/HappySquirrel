@@ -6,6 +6,7 @@ let message = document.querySelector(".message");
 let messageButtonYes = document.querySelector(".messageButtonYes");
 let messageButtonNo = document.querySelector(".messageButtonNo");
 let statsCounter = document.querySelector(".statsCounter");
+let statsTimer = document.querySelector(".statsTimer");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -13,6 +14,8 @@ let chestnutCoordinate = null;
 let isBelchaUp = false;
 
 let nutsAmount = null;
+
+let startTime = null;
 
 let intervalID = null;
 
@@ -24,6 +27,7 @@ let startGame = function() {
   snailCoordinate = 730;
   chestnutCoordinate = 800;
   nutsAmount = 0;
+  startTime = Date.now();
   statsCounter.textContent = nutsAmount;
   
   window.onkeydown = function (evt) {
@@ -57,6 +61,9 @@ let confirmReset = function() {
 };
 
 let renderFrame = function() {
+  let timeSpent = Date.now() - startTime;
+  statsTimer.textContent = timeFormatter(timeSpent);
+  
   snail.style.left = snailCoordinate + "px";
   snailCoordinate -= 2;
   if(snailCoordinate <= -60) {
@@ -88,6 +95,14 @@ let renderFrame = function() {
 let landBelcha = function() {
   belcha.style.bottom = "0px";
   isBelchaUp = false;
+}
+
+let timeFormatter = function(time) {
+  let seconds = Math.round(time/1000);
+  if(seconds<10) {
+    seconds = "0"+ seconds;
+  }
+  return "00:" + seconds;
 }
 
 startGame();
