@@ -136,6 +136,8 @@ main {
 
 .stats {
   position:absolute;
+  width: 130px;
+  box-sizing: border-box;
   font-size: 20px;
   background: pink;
   padding: 10px 20px;
