@@ -139,7 +139,6 @@ main {
   font-size: 20px;
   background: pink;
   padding: 10px 20px;
-  text-align: center;
   font-family: "Comic Sans MS";
   margin-top: -160px;
   box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
@@ -148,14 +147,27 @@ main {
   right: 20px;
 }
 
-.statsCounter::after {
+.statsCounter::before {
   height: 1em;
   width: 1em;
   content: "";
   display: inline-block;
   background-image: url("chestnut_1f330.png");
   background-size: 100% 100%;
-  margin-left: 0.5em;
+  margin-right: 0.5em;
   vertical-align: middle;
   margin-top: -4px;
+}
+
+.statsTimer::before {
+  height: 1.5em;
+  width: 1.5em;
+  content: "";
+  display: inline-block;
+  background-image: url(stopwatch_23f1-fe0f.png);
+  background-size: 100% 100%;
+  margin-right: 0.25em;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-left: -0.25em;
 }
