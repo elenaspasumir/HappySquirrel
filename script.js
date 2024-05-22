@@ -98,11 +98,16 @@ let landBelcha = function() {
 }
 
 let timeFormatter = function(time) {
-  let seconds = Math.round(time/1000);
-  if(seconds<10) {
+  let minutes = Math.floor(time / 60000);
+  if(minutes < 10) {
+    minutes = "0" + minutes;
+  }
+    
+  let seconds = Math.floor(time % 60000 / 1000);
+  if(seconds < 10) { 
     seconds = "0"+ seconds;
   }
-  return "00:" + seconds;
+  return minutes + ":" + seconds;
 }
 
 startGame();
