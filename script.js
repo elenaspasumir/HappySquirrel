@@ -110,5 +110,31 @@ let timeFormatter = function(time) {
   return minutes + ":" + seconds;
 }
 
-startGame();
+let preloadImages = function () {
+  let imageUrls = [
+    "chipmunk.png", 
+    "snail_1f40c.png",
+    "chestnut_1f330.png",
+    "stopwatch_23f1-fe0f.png",
+    "background.svg"
+  ];
+
+  let imagesLeft = imageUrls.length;
+
+  for(let url of imageUrls) {
+    let image = new Image();
+    image.onload = function() {
+      imagesLeft = imagesLeft - 1;
+      if(imagesLeft == 0) {
+        startGame();
+      }
+    }
+    image.src = url;
+  }
+  
+}
+
+preloadImages();
+
+
 
