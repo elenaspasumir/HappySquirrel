@@ -35,7 +35,7 @@ main {
   width: 120px;
   transform: scaleX(-1);
   position: absolute;
-  left: 130px;
+  left: calc(130px - 80px);
   bottom: 0;
   transition: bottom 100ms linear;
 }
@@ -141,7 +141,7 @@ main {
   font-size: 20px;
   background: pink;
   padding: 10px 20px;
-  font-family: "Comic Sans MS";
+  font-family: "Comic Sans MS", sans-serif;
   margin-top: -160px;
   box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
   border-radius: 20px;
@@ -172,4 +172,48 @@ main {
   vertical-align: middle;
   margin-top: -4px;
   margin-left: -0.25em;
+}
+
+.controls {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    align-items: start;
+  }
+
+  main {
+    height: 400px;
+    width: 730px;
+    margin-top: 0;
+    box-shadow: none;
+  }
+  
+  .controls {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 400px;
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .controlJump {
+    padding: 20px;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    box-shadow: 7px 7px 0 pink;
+    border-radius: 20px;
+    border: 0;
+    color: black;
+  }
+
+  .controlJump:active {
+    transform: translate(3px, 3px);
+    box-shadow: 4px 4px 0 pink;
+  }
+
 }

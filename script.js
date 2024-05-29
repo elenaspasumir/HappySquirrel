@@ -7,6 +7,7 @@ let messageButtonYes = document.querySelector(".messageButtonYes");
 let messageButtonNo = document.querySelector(".messageButtonNo");
 let statsCounter = document.querySelector(".statsCounter");
 let statsTimer = document.querySelector(".statsTimer");
+let controlJump = document.querySelector(".controlJump");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -32,11 +33,13 @@ let startGame = function() {
   
   window.onkeydown = function (evt) {
     if (evt.code == "Space") {
-      belcha.style.bottom = "90px";
-      isBelchaUp = true;
-      setTimeout(landBelcha, 1900); 
+      jumpBelcha();
     }
   };
+
+  controlJump.onclick = function() {
+    jumpBelcha();
+  }
   
   intervalID = setInterval(renderFrame, 1000/60);
 }
@@ -76,13 +79,13 @@ let renderFrame = function() {
     chestnutCoordinate = 800;
   } 
 
-  if(isBelchaUp == true && chestnutCoordinate < 250 && chestnutCoordinate > 90) {
+  if(isBelchaUp == true && chestnutCoordinate < 250 - 80 && chestnutCoordinate > 90 - 80) {
     chestnutCoordinate = 800;
     nutsAmount += 1;
     statsCounter.textContent = nutsAmount;
   }
 
-  if(isBelchaUp == false && snailCoordinate < 231 && snailCoordinate > 70) {
+  if(isBelchaUp == false && snailCoordinate < 231 - 80 && snailCoordinate > 70 - 80) {
     clearInterval(intervalID);
     belcha.className = "";
     forest.className = "forest";
@@ -90,6 +93,12 @@ let renderFrame = function() {
     chestnut.style.animation = "none";
     confirmReset();
   }
+}
+
+let jumpBelcha = function() {
+  belcha.style.bottom = "90px";
+  isBelchaUp = true;
+  setTimeout(landBelcha, 1900); 
 }
 
 let landBelcha = function() {
