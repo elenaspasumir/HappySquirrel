@@ -144,6 +144,3 @@ let preloadImages = function () {
 }
 
 preloadImages();
-
-
-

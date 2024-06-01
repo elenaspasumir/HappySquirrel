@@ -178,7 +178,23 @@ main {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+.controlJump {
+  padding: 20px;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  box-shadow: 7px 7px 0 pink;
+  border-radius: 20px;
+  border: 0;
+  color: black;
+}
+
+.controlJump:active {
+  transform: translate(3px, 3px);
+  box-shadow: 4px 4px 0 pink;
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
   body {
     align-items: start;
   }
@@ -199,21 +215,20 @@ main {
     text-align: center;
     padding-top: 30px;
   }
+}
 
-  .controlJump {
-    padding: 20px;
-    font-family: "Comic Sans MS", sans-serif;
-    font-size: 30px;
-    text-transform: uppercase;
-    box-shadow: 7px 7px 0 pink;
-    border-radius: 20px;
-    border: 0;
-    color: black;
+@media screen and (max-width: 940px) and (orientation: landscape) {
+  main {
+    margin-top: 0;
+    box-shadow: none;
+    transform: scale(0.7);
   }
 
-  .controlJump:active {
-    transform: translate(3px, 3px);
-    box-shadow: 4px 4px 0 pink;
+  .controls {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 30px; 
   }
-
 }

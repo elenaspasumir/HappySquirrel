@@ -32,10 +32,15 @@
 .messageButtonYes {
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
   .message {
     margin-top: 150px;
-    
   }
-  
+}
+
+@media screen and (max-width: 940px) and (orientation: landscape) {
+  .message {
+    margin-top: 0;
+    top: 70px;
+  }
 }
