@@ -114,7 +114,7 @@ main {
 }
 
 .forest {
-  background-image: url("background.svg");
+  background-image: url("forest.png");
   background-repeat: repeat-x;
   background-position-x: 0;
   width: 100%;
