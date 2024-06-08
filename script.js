@@ -11,6 +11,7 @@ let controlJump = document.querySelector(".controlJump");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
+let forestCoordinate = 0;
 
 let isBelchaUp = false;
 
@@ -24,7 +25,6 @@ let startGame = function() {
   belcha.className = "runningBelcha";
   snail.style.animation = null;
   chestnut.style.animation = null;
-  forest.className = "movingForest forest";
   snailCoordinate = 730;
   chestnutCoordinate = 800;
   nutsAmount = 0;
@@ -79,6 +79,9 @@ let renderFrame = function() {
     chestnutCoordinate = 800;
   } 
 
+  forest.style.backgroundPositionX = forestCoordinate + "px";
+  forestCoordinate -= 1.5;
+
   if(isBelchaUp == true && chestnutCoordinate < 250 - 80 && chestnutCoordinate > 90 - 80) {
     chestnutCoordinate = 800;
     nutsAmount += 1;
@@ -88,7 +91,6 @@ let renderFrame = function() {
   if(isBelchaUp == false && snailCoordinate < 231 - 80 && snailCoordinate > 70 - 80) {
     clearInterval(intervalID);
     belcha.className = "";
-    forest.className = "forest";
     snail.style.animation = "none";
     chestnut.style.animation = "none";
     confirmReset();

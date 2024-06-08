@@ -121,19 +121,6 @@ main {
   height: 100%;
 }
 
-.movingForest {
-  animation: backgroundScroll 10s infinite linear;
-}
-
-@keyframes backgroundScroll {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -1000px;
-  }
-}
-
 .stats {
   position:absolute;
   width: 130px;
