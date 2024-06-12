@@ -21,12 +21,14 @@ let startTime = null;
 
 let intervalID = null;
 
+let coordinateRange = 400;
+
 let startGame = function() {
   belcha.className = "runningBelcha";
   snail.style.animation = null;
   chestnut.style.animation = null;
-  snailCoordinate = 730;
-  chestnutCoordinate = 800;
+  snailCoordinate = getRandomNumber(730, 730 + coordinateRange);
+  chestnutCoordinate = getRandomNumber(800, 800 + coordinateRange);
   nutsAmount = 0;
   startTime = Date.now();
   statsCounter.textContent = nutsAmount;
@@ -70,20 +72,20 @@ let renderFrame = function() {
   snail.style.left = snailCoordinate + "px";
   snailCoordinate -= 2;
   if(snailCoordinate <= -60) {
-    snailCoordinate = 730;
+    snailCoordinate = getRandomNumber(730, 730 + coordinateRange);
   }
   
   chestnut.style.left = chestnutCoordinate + "px";
   chestnutCoordinate -= 1;
   if(chestnutCoordinate <= -40) {
-    chestnutCoordinate = 800;
+    chestnutCoordinate = getRandomNumber(800, 800 + coordinateRange);
   } 
 
   forest.style.backgroundPositionX = forestCoordinate + "px";
   forestCoordinate -= 1.5;
 
   if(isBelchaUp == true && chestnutCoordinate < 250 - 80 && chestnutCoordinate > 90 - 80) {
-    chestnutCoordinate = 800;
+    chestnutCoordinate = getRandomNumber(800, 800 + coordinateRange);
     nutsAmount += 1;
     statsCounter.textContent = nutsAmount;
   }
@@ -143,6 +145,10 @@ let preloadImages = function () {
     image.src = url;
   }
   
+}
+
+let getRandomNumber = function (from, to) {
+  return from + Math.round(Math.random() * (to - from));
 }
 
 preloadImages();
