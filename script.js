@@ -12,6 +12,7 @@ let controlJump = document.querySelector(".controlJump");
 let snailCoordinate = null;
 let chestnutCoordinate = null;
 let forestCoordinate = 0;
+let gameSpeed = null;
 
 let isBelchaUp = false;
 
@@ -23,6 +24,8 @@ let intervalID = null;
 
 let coordinateRange = 400;
 
+let onBelchaLand = null;
+
 let startGame = function() {
   belcha.className = "runningBelcha";
   snail.style.animation = null;
@@ -32,6 +35,7 @@ let startGame = function() {
   nutsAmount = 0;
   startTime = Date.now();
   statsCounter.textContent = nutsAmount;
+  gameSpeed = 1;
   
   window.onkeydown = function (evt) {
     if (evt.code == "Space") {
@@ -70,24 +74,28 @@ let renderFrame = function() {
   statsTimer.textContent = timeFormatter(timeSpent);
   
   snail.style.left = snailCoordinate + "px";
-  snailCoordinate -= 2;
+  snailCoordinate -= 2 * gameSpeed;
   if(snailCoordinate <= -60) {
     snailCoordinate = getRandomNumber(730, 730 + coordinateRange);
   }
   
   chestnut.style.left = chestnutCoordinate + "px";
-  chestnutCoordinate -= 1;
+  chestnutCoordinate -= 1 * gameSpeed;
   if(chestnutCoordinate <= -40) {
     chestnutCoordinate = getRandomNumber(800, 800 + coordinateRange);
   } 
 
   forest.style.backgroundPositionX = forestCoordinate + "px";
-  forestCoordinate -= 1.5;
+  forestCoordinate -= 1.5 * gameSpeed;
 
   if(isBelchaUp == true && chestnutCoordinate < 250 - 80 && chestnutCoordinate > 90 - 80) {
     chestnutCoordinate = getRandomNumber(800, 800 + coordinateRange);
     nutsAmount += 1;
     statsCounter.textContent = nutsAmount;
+    onBelchaLand = function () {
+      increaseGameSpeed();
+      onBelchaLand = null;
+    };
   }
 
   if(isBelchaUp == false && snailCoordinate < 231 - 80 && snailCoordinate > 70 - 80) {
@@ -108,6 +116,10 @@ let jumpBelcha = function() {
 let landBelcha = function() {
   belcha.style.bottom = "0px";
   isBelchaUp = false;
+
+  if(typeof onBelchaLand == "function") {
+    onBelchaLand();
+  }
 }
 
 let timeFormatter = function(time) {
@@ -149,6 +161,10 @@ let preloadImages = function () {
 
 let getRandomNumber = function (from, to) {
   return from + Math.round(Math.random() * (to - from));
+}
+
+let increaseGameSpeed = function () {
+  gameSpeed += 0.5;
 }
 
 preloadImages();
