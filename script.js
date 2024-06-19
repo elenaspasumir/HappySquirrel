@@ -27,7 +27,7 @@ let coordinateRange = 400;
 let onBelchaLand = null;
 
 let startGame = function() {
-  belcha.className = "runningBelcha";
+  belcha.classList.add("runningBelcha");
   snail.style.animation = null;
   chestnut.style.animation = null;
   snailCoordinate = getRandomNumber(730, 730 + coordinateRange);
@@ -51,7 +51,7 @@ let startGame = function() {
 }
 
 let endGame = function() {
-  belcha.className = "happyBelcha";
+  belcha.classList.remove("runningBelcha");
 }
 
 let confirmReset = function() {
@@ -108,12 +108,14 @@ let renderFrame = function() {
 }
 
 let jumpBelcha = function() {
+  belcha.classList.remove("runningBelcha");
   belcha.style.bottom = "90px";
   isBelchaUp = true;
   setTimeout(landBelcha, 1900); 
 }
 
 let landBelcha = function() {
+  belcha.classList.add("runningBelcha");
   belcha.style.bottom = "0px";
   isBelchaUp = false;
 
