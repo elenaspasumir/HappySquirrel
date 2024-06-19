@@ -52,6 +52,15 @@ let startGame = function() {
 
 let endGame = function() {
   belcha.classList.remove("runningBelcha");
+  snail.style.animation = "none";
+  chestnut.style.animation = "none";
+  
+  window.onkeydown = null;
+  controlJump.onclick = null;
+  
+  clearInterval(intervalID);
+  
+  confirmReset();
 }
 
 let confirmReset = function() {
@@ -65,7 +74,6 @@ let confirmReset = function() {
   
   messageButtonNo.onclick = function () {
     message.style.display = "none";
-    endGame();
   };
 };
 
@@ -99,11 +107,7 @@ let renderFrame = function() {
   }
 
   if(isBelchaUp == false && snailCoordinate < 231 - 80 && snailCoordinate > 70 - 80) {
-    clearInterval(intervalID);
-    belcha.className = "";
-    snail.style.animation = "none";
-    chestnut.style.animation = "none";
-    confirmReset();
+    endGame();
   }
 }
 
