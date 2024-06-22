@@ -22,6 +22,10 @@ main {
   position: relative;
 }
 
+.mainInactive {
+  filter: blur(2px);
+}
+
 .game {
   height: 100%;
   background: #71c6ea;
@@ -165,6 +169,10 @@ main {
   display: none;
 }
 
+.controls.controlsInactive {
+  display: none;
+}
+
 .controlJump {
   padding: 20px;
   font-family: "Comic Sans MS", sans-serif;
@@ -179,6 +187,11 @@ main {
 .controlJump:active {
   transform: translate(3px, 3px);
   box-shadow: 4px 4px 0 pink;
+}
+
+.gameMenu {
+  position: absolute;
+  display: none;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {

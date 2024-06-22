@@ -66,12 +66,12 @@ let endGame = function() {
 let confirmReset = function() {
   message.style.display = "block";
   messageButtonYes.focus();
-  
+
   messageButtonYes.onclick = function () {
     message.style.display = "none";
     startGame();
   }
-  
+
   messageButtonNo.onclick = function () {
     message.style.display = "none";
   };
@@ -80,13 +80,13 @@ let confirmReset = function() {
 let renderFrame = function() {
   let timeSpent = Date.now() - startTime;
   statsTimer.textContent = timeFormatter(timeSpent);
-  
+
   snail.style.left = snailCoordinate + "px";
   snailCoordinate -= 2 * gameSpeed;
   if(snailCoordinate <= -60) {
     snailCoordinate = getRandomNumber(730, 730 + coordinateRange);
   }
-  
+
   chestnut.style.left = chestnutCoordinate + "px";
   chestnutCoordinate -= 1 * gameSpeed;
   if(chestnutCoordinate <= -40) {
@@ -141,7 +141,7 @@ let timeFormatter = function(time) {
   return minutes + ":" + seconds;
 }
 
-let preloadImages = function () {
+let preloadImages = function() {
   let imageUrls = [
     "chipmunk.png", 
     "snail_1f40c.png",
@@ -165,11 +165,11 @@ let preloadImages = function () {
   
 }
 
-let getRandomNumber = function (from, to) {
+let getRandomNumber = function(from, to) {
   return from + Math.round(Math.random() * (to - from));
 }
 
-let increaseGameSpeed = function () {
+let increaseGameSpeed = function() {
   gameSpeed += 0.5;
 }
 
