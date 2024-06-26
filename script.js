@@ -8,6 +8,8 @@ let messageButtonNo = document.querySelector(".messageButtonNo");
 let statsCounter = document.querySelector(".statsCounter");
 let statsTimer = document.querySelector(".statsTimer");
 let controlJump = document.querySelector(".controlJump");
+let gameStart = document.querySelector(".gameStart");
+let gameMenu = document.querySelector(".gameMenu");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -157,7 +159,7 @@ let preloadImages = function() {
     image.onload = function() {
       imagesLeft = imagesLeft - 1;
       if(imagesLeft == 0) {
-        startGame();
+        activateStartButton();
       }
     }
     image.src = url;
@@ -171,6 +173,15 @@ let getRandomNumber = function(from, to) {
 
 let increaseGameSpeed = function() {
   gameSpeed += 0.5;
+}
+
+let activateStartButton = function() {
+  gameStart.textContent = "Играть!";
+  gameStart.disabled = false;
+  gameStart.onclick = function() {
+    gameMenu.classList.add("gameMenuHidden");
+    startGame();
+  }
 }
 
 preloadImages();

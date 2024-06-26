@@ -191,7 +191,31 @@ main {
 
 .gameMenu {
   position: absolute;
+  font-size: 20px;
+  background: pink;
+  padding: 20px;
+  text-align: center;
+  font-family: "Comic Sans MS", sans-serif;
+  margin-top: -160px;
+  box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
+  border-radius: 30px;
+}
+
+.gameMenuHidden {
   display: none;
+}
+
+.gameStart {
+  font-size: 30px;
+  padding: 0.1em 0.5em 0.2em;
+  font-family: "Comic Sans MS", sans-serif;
+  color: black;
+  border: solid 1px buttonface;
+  background-color: white;
+}
+
+.gameStart:disabled {
+  color: #7d7d7d;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -215,6 +239,14 @@ main {
     text-align: center;
     padding-top: 30px;
   }
+
+  .gameMenu {
+    margin: 150px 40px 0;
+  }
+
+  .gameStart:disabled {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 940px) and (orientation: landscape) {
@@ -230,5 +262,9 @@ main {
     right: 0;
     top: 0;
     padding-right: 30px; 
+  }
+
+  .gameMenu {
+    margin-top: 50px;
   }
 }
