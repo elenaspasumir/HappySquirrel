@@ -129,40 +129,52 @@ main {
   position:absolute;
   width: 130px;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.15;
   background: pink;
-  padding: 10px 20px;
+  padding: 0.5em 1em;
   font-family: "Comic Sans MS", sans-serif;
   margin-top: -160px;
   box-shadow: 10px 10px 0 rgb(32 30 30 / 38%);
   border-radius: 20px;
-  bottom: 20px;
+  bottom: 15px;
   right: 20px;
 }
 
 .statsCounter::before {
-  height: 1em;
-  width: 1em;
+  height: 0.8em;
+  width: 0.8em;
   content: "";
   display: inline-block;
   background-image: url("chestnut_1f330.png");
   background-size: 100% 100%;
   margin-right: 0.5em;
   vertical-align: middle;
-  margin-top: -4px;
+  margin-top: -0.35em;
 }
 
 .statsTimer::before {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.2em;
+  width: 1.2em;
   content: "";
   display: inline-block;
   background-image: url(stopwatch_23f1-fe0f.png);
   background-size: 100% 100%;
   margin-right: 0.25em;
   vertical-align: middle;
-  margin-top: -4px;
-  margin-left: -0.25em;
+  margin-top: -0.35em;
+  margin-left: -0.2em;
+}
+
+.statsRecord {
+  font-size: 70%;
+  color: #000;
+  margin-top: 0.7em;
+  opacity: 0.4;
+}
+
+.statsRecordCounter {
+  margin-right: 0.5em;
 }
 
 .controls {
