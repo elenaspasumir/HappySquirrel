@@ -10,6 +10,8 @@ let statsTimer = document.querySelector(".statsTimer");
 let controlJump = document.querySelector(".controlJump");
 let gameStart = document.querySelector(".gameStart");
 let gameMenu = document.querySelector(".gameMenu");
+let statsRecordTimer = document.querySelector(".statsRecordTimer");
+let statsRecordCounter = document.querySelector(".statsRecordCounter");
 
 let snailCoordinate = null;
 let chestnutCoordinate = null;
@@ -27,6 +29,11 @@ let intervalID = null;
 let coordinateRange = 400;
 
 let onBelchaLand = null;
+
+let record = {
+  nuts: 0,
+  time: 0
+};
 
 let startGame = function() {
   belcha.classList.add("runningBelcha");
@@ -52,7 +59,7 @@ let startGame = function() {
   intervalID = setInterval(renderFrame, 1000/60);
 }
 
-let endGame = function() {
+let endGame = function(timeSpent) {
   belcha.classList.remove("runningBelcha");
   snail.style.animation = "none";
   chestnut.style.animation = "none";
@@ -61,6 +68,14 @@ let endGame = function() {
   controlJump.onclick = null;
   
   clearInterval(intervalID);
+
+  if (nutsAmount > record.nuts || nutsAmount === record.nuts && timeSpent < record.time) {
+    record.nuts = nutsAmount;
+    record.time = timeSpent;
+    localStorage.setItem("recordNuts", nutsAmount);
+    localStorage.setItem("recordTime", timeSpent);
+    showRecord();
+  }
   
   confirmReset();
 }
@@ -109,7 +124,7 @@ let renderFrame = function() {
   }
 
   if(isBelchaUp == false && snailCoordinate < 231 - 80 && snailCoordinate > 70 - 80) {
-    endGame();
+    endGame(timeSpent);
   }
 }
 
@@ -141,6 +156,11 @@ let timeFormatter = function(time) {
     seconds = "0"+ seconds;
   }
   return minutes + ":" + seconds;
+}
+
+let showRecord = function () {
+  statsRecordTimer.textContent = timeFormatter(record.time);
+  statsRecordCounter.textContent = record.nuts;
 }
 
 let preloadImages = function() {
@@ -183,5 +203,7 @@ let activateStartButton = function() {
     startGame();
   }
 }
+
+showRecord();
 
 preloadImages();
